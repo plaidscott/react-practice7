@@ -1,0 +1,23 @@
+.MainWrapper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../media/starsBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+
+.Main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*flex-wrap: wrap;*/
+}
+
+.searchInputGroup {
+  width: 500px;
+}
