@@ -17,7 +17,6 @@ class Cardholder extends Component {
     return (
       this.props.people.map( (person, index) => {
         let homeworld = this.state.planets.find( (planet) => { return planet.url === person.homeworld})
-        console.log('hoemworld;', homeworld);
         return (
           <Card person={person} key={index} homeworld={homeworld}/>
         )
