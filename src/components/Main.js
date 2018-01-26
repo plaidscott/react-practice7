@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 
 import Cardholder from './Cardholder.js';
@@ -17,7 +16,8 @@ class Main extends Component {
       searchInput: '',
       currentPage: 1,
       people: [],
-      numPeopleInResponse: 1
+      numPeopleInResponse: 1,
+      showFavoritedPeople: false
     }
   }
 
@@ -40,17 +40,54 @@ class Main extends Component {
   }
 
   handlePageClick = (e) => {
-   this.setState({currentPage: e.selected + 1}, () => {
-     api.searchPeople(this.state.searchInput, this.state.currentPage)
-      .then( response => {
-        console.log("=++++++++++++++++++", response);
-        this.setState({
-          people: response.data
-        })
-      })
-   });
+   this.setState({currentPage: e.selected + 1},
+     this.state.showFavoritedPeople ? (
+       () => {
+         api.getFavoritedPeople(this.state.currentPage)
+                .then( response => {
+                    console.log("===================", response);
+                    this.setState({
+                      people: response.data,
+                      numPeopleInResponse: response.headers['x-total-count']
+                    })
+                  })
+                }
+     )
+     :
+     (
+       () => {
+              api.searchPeople(this.state.searchInput, this.state.currentPage)
+               .then( response => {
+                 console.log("=++++++++++++++++++", response);
+                 this.setState({
+                   people: response.data,
+                   numPeopleInResponse: response.headers['x-total-count']
+                 })
+               })
+              }
+     )
+   );
 
   };
+
+  handleFavoritePeopleClick = () => {
+    this.setState({ showFavoritedPeople : ! this.state.showFavoritedPeople}, this.handleFavoritePeople)
+  }
+  handleFavoritePeople = () => {
+    this.state.showFavoritedPeople ?
+    (
+      api.getFavoritedPeople(this.state.currentPage)
+       .then( response => {
+         console.log("===================", response);
+         this.setState({
+           people: response.data,
+           numPeopleInResponse: response.headers['x-total-count']
+         })
+       })
+    )
+    : this.setState({people: []})
+
+  }
 
  calculatePages = () => {
     if(this.state.numPeopleInResponse % 10 > 0 && this.state.numPeopleInResponse > 10) {
@@ -79,6 +116,7 @@ class Main extends Component {
                 onKeyUp={this.handleSearchInput}
                 >
               </FormControl>
+              <Button onClick={this.handleFavoritePeopleClick}>Show Favorited People</Button>
             </FormGroup>
           </div>
           <Cardholder people={this.state.people}/>

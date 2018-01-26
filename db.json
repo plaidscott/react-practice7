@@ -441,7 +441,8 @@
       "created": "2014-12-10T17:03:30.334000Z",
       "edited": "2014-12-20T21:17:50.336000Z",
       "url": "https://swapi.co/api/people/15/",
-      "starCount": 1
+      "starCount": 1,
+      "likes": 1
     },
     {
       "id": 16,
@@ -467,7 +468,8 @@
       "created": "2014-12-10T17:11:31.638000Z",
       "edited": "2014-12-20T21:17:50.338000Z",
       "url": "https://swapi.co/api/people/16/",
-      "starCount": 1
+      "starCount": 1,
+      "likes": 1
     },
     {
       "id": 17,
@@ -551,7 +553,8 @@
       "created": "2014-12-15T12:26:01.042000Z",
       "edited": "2014-12-20T21:17:50.345000Z",
       "url": "https://swapi.co/api/people/20/",
-      "starCount": 1
+      "starCount": 1,
+      "likes": 1
     },
     {
       "id": 20,
@@ -752,7 +755,8 @@
       "starships": [],
       "created": "2014-12-18T11:12:38.895000Z",
       "edited": "2014-12-20T21:17:50.364000Z",
-      "url": "https://swapi.co/api/people/28/"
+      "url": "https://swapi.co/api/people/28/",
+      "likes": 1
     },
     {
       "id": 28,
@@ -850,7 +854,8 @@
       "starships": [],
       "created": "2014-12-19T16:54:53.618000Z",
       "edited": "2014-12-20T21:17:50.375000Z",
-      "url": "https://swapi.co/api/people/32/"
+      "url": "https://swapi.co/api/people/32/",
+      "likes": 1
     },
     {
       "id": 32,
@@ -899,7 +904,8 @@
       "starships": [],
       "created": "2014-12-19T17:21:45.915000Z",
       "edited": "2014-12-20T21:17:50.379000Z",
-      "url": "https://swapi.co/api/people/34/"
+      "url": "https://swapi.co/api/people/34/",
+      "likes": 1
     },
     {
       "id": 34,

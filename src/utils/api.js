@@ -51,5 +51,15 @@ module.exports = {
     .catch( error => {
       console.log('error in editPerson, api', error)
     })
+  },
+  getFavoritedPeople: (currentPage) => {
+    return axios.get(`${BASE_URL}/people?_page=${currentPage}&likes_gte=1&_limit=10`)
+    .then( response => {
+      console.log('repsonse in getFavoritedPeople api', response);
+      return response;
+    })
+    .catch( error => {
+      console.log('error in getFavoritedPeople, api', error)
+    })
   }
 }
