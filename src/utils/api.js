@@ -21,5 +21,35 @@ module.exports = {
       .catch( error => {
         console.log('error in getPlanets, api', error)
       })
+  },
+  editHomeworld: (updatedPlanetObject) => {
+    return axios({
+      method: "PUT",
+      url: `${BASE_URL}/planets/${updatedPlanetObject.id}`,
+      headers: { "Content-Type" : "application/json" },
+      data: updatedPlanetObject
+    })
+    .then( response => {
+      console.log('repsonse in editHomeworld api', response);
+      return response;
+    })
+    .catch( error => {
+      console.log('error in editHomeworld, api', error)
+    })
+  },
+  editPerson: (updatedPersonObject) => {
+    return axios({
+      method: "PUT",
+      url: `${BASE_URL}/people/${updatedPersonObject.id}`,
+      headers: { "Content-Type" : "application/json" },
+      data: updatedPersonObject
+    })
+    .then( response => {
+      console.log('repsonse in editPerson api', response);
+      return response;
+    })
+    .catch( error => {
+      console.log('error in editPerson, api', error)
+    })
   }
 }
